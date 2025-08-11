@@ -3,7 +3,9 @@
 [![Vercel](https://vercelbadge.vercel.app/api/barun79/ai_resume_analyzer)](https://ai-resume-analyzer-sigma.vercel.app/)
 
 An intelligent resume screening tool that leverages AI to analyze resumes for **ATS compatibility**, **overall quality**, and **job-fit**—helping candidates improve their chances of landing interviews.
-![Demo](https://raw.githubusercontent.com/barun79/ai_resume_analyzer/main/public/demo.gif)
+
+[![Movie App Screenshot](https://raw.githubusercontent.com/barun79/ai_resume_analyzer/main/public/demo.gif)](https://ai-resume-analyzer-sigma.vercel.app/)
+
 🔗 **Live Demo:** [ai-resume-analyzer-sigma.vercel.app](https://ai-resume-analyzer-sigma.vercel.app/)  
 💻 **GitHub Repo:** [github.com/barun79/ai_resume_analyzer](https://github.com/barun79/ai_resume_analyzer)
 
