@@ -269,9 +269,10 @@ interface Feedback {
   };
 }
 
-Use these exact property names and structure. The JSON must be parseable by standard JSON.parse().
-
-Do NOT include any explanations, extra text, backticks, or comments outside the JSON object.
+IMPORTANT:
+- Do NOT include any markdown code fences, backticks, or any formatting around the JSON.
+- Return ONLY the raw JSON object.
+- The JSON must be parseable by standard JSON.parse() without errors.
 
 The job title is: ${jobTitle}
 
