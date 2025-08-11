@@ -265,14 +265,61 @@ export const prepareInstructions = ({
     AIResponseFormat: string;
 }) =>
     `You are an expert in ATS (Applicant Tracking System) and resume analysis.
-  Please analyze and rate this resume and suggest how to improve it.
-  The rating can be low if the resume is bad.
-  Be thorough and detailed. Don't be afraid to point out any mistakes or areas for improvement.
-  If there is a lot to improve, don't hesitate to give low scores. This is to help the user to improve their resume.
-  If available, use the job description for the job user is applying to to give more detailed feedback.
-  If provided, take the job description into consideration.
-  The job title is: ${jobTitle}
-  The job description is: ${jobDescription}
-  Provide the feedback using the following format: ${AIResponseFormat}
-  Return the analysis as a JSON object, without any other text and without the backticks.
-  Do not include any other text or comments.`;
+
+Analyze and rate this resume based on the given job title and job description. Be thorough and detailed, and don't hesitate to point out mistakes or areas for improvement.
+
+Return ONLY a valid JSON object exactly matching the following TypeScript interface named Feedback:
+
+interface Feedback {
+  overallScore: number; // max 100
+  ATS: {
+    score: number; // rate based on ATS suitability
+    tips: {
+      type: "good" | "improve";
+      tip: string; // 3-4 tips
+    }[];
+  };
+  toneAndStyle: {
+    score: number; // max 100
+    tips: {
+      type: "good" | "improve";
+      tip: string; // short "title" for the explanation
+      explanation: string; // detailed explanation
+    }[]; // 3-4 tips
+  };
+  content: {
+    score: number; // max 100
+    tips: {
+      type: "good" | "improve";
+      tip: string;
+      explanation: string;
+    }[]; // 3-4 tips
+  };
+  structure: {
+    score: number; // max 100
+    tips: {
+      type: "good" | "improve";
+      tip: string;
+      explanation: string;
+    }[]; // 3-4 tips
+  };
+  skills: {
+    score: number; // max 100
+    tips: {
+      type: "good" | "improve";
+      tip: string;
+      explanation: string;
+    }[]; // 3-4 tips
+  };
+}
+
+Use these exact property names and structure. The JSON must be parseable by standard JSON.parse().
+
+Do NOT include any explanations, extra text, backticks, or comments outside the JSON object.
+
+The job title is: ${jobTitle}
+
+The job description is: ${jobDescription}
+
+Return only the JSON object.
+`;
